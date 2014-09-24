@@ -63,23 +63,10 @@
     
     NSArray *availableDirections = [self.map.currentTile availableDirections];
     
-    if ([availableDirections containsObject:[NSNumber numberWithInteger:NORTH]])
-        self.navigateNorthButton.hidden = NO;
-    else
-        self.navigateNorthButton.hidden = YES;
-    if ([availableDirections containsObject:[NSNumber numberWithInteger:EAST]])
-        self.navigateEastButton.hidden = NO;
-    else
-        self.navigateEastButton.hidden = YES;
-    if ([availableDirections containsObject:[NSNumber numberWithInteger:SOUTH]])
-        self.navigateSouthButton.hidden = NO;
-    else
-        self.navigateSouthButton.hidden = YES;
-    if ([availableDirections containsObject:[NSNumber numberWithInteger:WEST]])
-        self.navigateWestButton.hidden = NO;
-    else
-        self.navigateWestButton.hidden = YES;
-
+    self.navigateNorthButton.hidden = ![availableDirections containsObject:[NSNumber numberWithInteger:NORTH]];
+    self.navigateEastButton.hidden = ![availableDirections containsObject:[NSNumber numberWithInteger:EAST]];
+    self.navigateSouthButton.hidden = ![availableDirections containsObject:[NSNumber numberWithInteger:SOUTH]];
+    self.navigateWestButton.hidden = ![availableDirections containsObject:[NSNumber numberWithInteger:WEST]];
 }
 
 @end
